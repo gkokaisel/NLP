@@ -47,9 +47,7 @@ class FeatureFactory:
             features.append("suffixUpper=" + currentWord[-3:])
             
         if currentWord[0].islower:
-	    features.append("suffixLower=" + currentWord[-3:])
-
-	
+	    features.append("suffixLower=" + currentWord[-3:])	
         
         if currentWord:
 	    features.append("presentcase=")
