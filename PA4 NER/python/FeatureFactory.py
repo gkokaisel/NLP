@@ -30,7 +30,9 @@ class FeatureFactory:
         nextWord2 = words[position + 2] if position + 2 < len(words) else "."   
        
         features.append(currentWord)         
-        features.append("prevWord=" + currentWord)  
+        features.append("prevWord=" + currentWord)
+        features.append("nextWord=" + currentWord)
+        features.append("prevWord2=" + currentWord)        
         features.append("word=" + currentWord)
         features.append("prevWord=" + prevWord)        
         features.append("prevWord2=" + prevWord2)
@@ -39,6 +41,9 @@ class FeatureFactory:
 
         if currentWord[0].isupper():
             features.append("FirstLastName=" + currentWord + " " + nextWord)
+            
+        if currentWord[0].isupper():
+            features.append("abbreviated=" + currentWord[-1:] + ".")
        
         if currentWord.isspace and currentWord[-1].isupper():
 	    features.append("spacecase=")
@@ -47,8 +52,8 @@ class FeatureFactory:
             features.append("suffixUpper=" + currentWord[-3:])
             
         if currentWord[0].islower:
-	    features.append("suffixLower=" + currentWord[-3:])	
-        
+	    features.append("suffixLower=" + currentWord[-3:])
+	    
         if currentWord:
 	    features.append("presentcase=")
 
