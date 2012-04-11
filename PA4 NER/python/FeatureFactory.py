@@ -38,7 +38,10 @@ class FeatureFactory:
         features.append("prevWord2=" + prevWord2)
         features.append("nextWord=" + nextWord)
         features.append("nextWord2=" + nextWord2)
-
+      
+        features.append("initial=0" + currentWord)
+        
+        
         if currentWord[0].isupper():
             features.append("FirstLastName=" + currentWord + " " + nextWord)
             
