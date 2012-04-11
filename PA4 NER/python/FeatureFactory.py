@@ -38,13 +38,18 @@ class FeatureFactory:
         features.append("nextWord2=" + nextWord2)
 
         if currentWord[0].isupper():
-            features.append("GermanName=" + currentWord + " " + nextWord)
+            features.append("FirstLastName=" + currentWord + " " + nextWord)
        
-        if currentWord[0].isspace and currentWord[-1].isupper():
-	    features.append('spacecase=')
+        if currentWord.isspace and currentWord[-1].isupper():
+	    features.append("spacecase=")
 	    
         if currentWord[0].isupper():
-            features.append("suffix3=" + currentWord[-3:])        
+            features.append("suffixUpper=" + currentWord[-3:])
+            
+        if currentWord[0].islower:
+	    features.append("suffixLower=" + currentWord[-3:])
+
+	
         
         if currentWord:
 	    features.append("presentcase=")
@@ -57,8 +62,9 @@ class FeatureFactory:
 	    
         if previousLabel != "O":
             if re.findall(r'^[A-Z]', currentWord):
-	        features.append("INITCAP=")
-   
+	        features.append("INITCAP=")	
+			
+       	    
         return features  
 	
     """ Do not modify this method """
