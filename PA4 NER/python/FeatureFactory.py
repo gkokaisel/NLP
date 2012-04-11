@@ -40,7 +40,9 @@ class FeatureFactory:
         if currentWord[0].isupper():
             features.append("GermanName=" + currentWord + " " + nextWord)
        
-
+        if currentWord[0].isspace and currentWord[-1].isupper():
+	    features.append('spacecase=')
+	    
         if currentWord[0].isupper():
             features.append("suffix3=" + currentWord[-3:])        
         
