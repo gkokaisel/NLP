@@ -27,17 +27,20 @@ class FeatureFactory:
         prevWord = words[position - 1] if position > 0 else "."
         prevWord2 = words[position - 2] if position > 1 else "."       
         nextWord = words[position + 1] if position + 1 < len(words) else "."
-        nextWord2 = words[position + 2] if position + 2 < len(words) else "."   
+        nextWord2 = words[position + 2] if position + 2 < len(words) else "."
        
-        features.append(currentWord)         
+       
+        features.append(currentWord[-3:])         
         features.append("prevWord=" + currentWord)
         features.append("nextWord=" + currentWord)
+        features.append("nextWord2=" + currentWord)        
         features.append("prevWord2=" + currentWord)        
         features.append("word=" + currentWord)
         features.append("prevWord=" + prevWord)        
         features.append("prevWord2=" + prevWord2)
         features.append("nextWord=" + nextWord)
         features.append("nextWord2=" + nextWord2)
+        
       
         features.append("initial=0" + currentWord)
         
