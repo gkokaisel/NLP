@@ -4,6 +4,7 @@ import re
 
 from Datum import Datum
 
+
 class FeatureFactory:
     """
     Add any necessary initialization steps for your features here
@@ -39,9 +40,7 @@ class FeatureFactory:
         features.append("prevWord=" + prevWord)        
         features.append("prevWord2=" + prevWord2)
         features.append("nextWord=" + nextWord)
-        features.append("nextWord2=" + nextWord2)
-        
-      
+        features.append("nextWord2=" + nextWord2)      
         features.append("initial=0" + currentWord)
         
         
@@ -71,7 +70,9 @@ class FeatureFactory:
 	    
         if previousLabel != "O":
             if re.findall(r'^[A-Z]', currentWord):
-	        features.append("INITCAP=")	
+	        features.append("INITCAP=")
+
+	
 			
        	    
         return features  
